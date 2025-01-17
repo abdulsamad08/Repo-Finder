@@ -10,6 +10,9 @@ import 'package:transviti_test/models/trending_repos_model.dart';
 import 'package:transviti_test/views/home/card_widget.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../core/constants/app_colors.dart';
+import '../../core/theme/app_theme.dart';
+
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
@@ -30,8 +33,11 @@ class HomeView extends StatelessWidget {
         appBar: AppBar(
             backgroundColor: AppColors.primaryVariant,
             centerTitle: true,
-            title: const Text("Trending",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+            title: Text("Trending",
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.background))),
         body: StreamBuilder<TrendingRepos>(
           stream: homeController.reposStream,
           builder: (context, snapshot) {
